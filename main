@@ -1,0 +1,10 @@
+#!/bin/bash
+
+notebook=$(jq -r .notebook config.json)
+
+ls $notebook
+
+mkdir -p html
+
+singularity exec -e docker://jupyter/datascience-notebook jupyter nbconvert --to html --output-dir=html $notebook
+
