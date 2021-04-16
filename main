@@ -15,7 +15,8 @@ singularity exec -e docker://jupyter/datascience-notebook jupyter nbconvert \
 #--template basic \ #basic is too plain
 
 #create a current snapshot(copy) of the whole notebook to be archived
-rsync -av --exclude "**/input" --exclude "**/.*" $(dirname $notebook)/ notebook/
+mkdir -p notebook
+rsync -av --exclude "**/input" --exclude "**/.*" $(dirname $notebook)/ notebook/notebook/
 
 #there are things we don't want ..
 #ln -sf $(dirname $notebook) notebook
