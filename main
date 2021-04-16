@@ -6,5 +6,8 @@ ls $notebook
 
 mkdir -p html
 
-singularity exec -e docker://jupyter/datascience-notebook jupyter nbconvert --to html --output-dir=html $notebook
+singularity exec -e docker://jupyter/datascience-notebook jupyter nbconvert \
+    --to html \
+    --template classic \
+    --output-dir=html $notebook
 
