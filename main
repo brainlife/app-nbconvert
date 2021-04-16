@@ -8,9 +8,9 @@ mkdir -p html
 
 singularity exec -e docker://jupyter/datascience-notebook jupyter nbconvert \
     --to html \
-    --template basic \
+    --template classic \
     --output-dir=html \
     --output=index.html \
     $notebook
 
-#--template classic \
+#--template basic \ #basic is too plain
